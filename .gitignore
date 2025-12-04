@@ -1,0 +1,44 @@
+.venv
+__pycache__/
+
+# Large files
+*.log
+*.tmp
+
+data/raw/
+data/processed/
+*.csv
+*.json
+
+# Model files
+models/trained/*.pkl
+models/trained/*.joblib
+
+*.index
+*.faiss
+embeddings_cache/
+vector_stores/
+
+
+*api_key*
+*secret*
+config/credentials.json
+
+
+models/trained/*.pkl
+models/trained/*.joblib
+training_results.csv
+model_performance.json
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
