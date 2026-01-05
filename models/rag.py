@@ -528,23 +528,10 @@ class RAGSystemManager:
         intent_model = load_intent_classifier(intent_model_path)
         print("✓ Intent model loaded")
         
-        # Load knowledge base - rebuild from data to avoid pickle issues
-        # Load the original dataframe to rebuild knowledge base
-        try:
-            with open(system_path / 'knowledge_base.pkl', 'rb') as f:
-                kb = pickle.load(f)
-            print("✓ Knowledge base loaded from pickle")
-        except (AttributeError, ModuleNotFoundError) as e:
-            # Pickle failed, rebuild from scratch using minimal data
-            print("⚠️  Pickle loading failed, creating minimal knowledge base...")
-            # Create a minimal DataFrame with just the intents
-            intents = config.get('intents', [])
-            minimal_df = pd.DataFrame({
-                'text': [f'Sample text for {intent}' for intent in intents],
-                'intent': intents
-            })
-            kb = CustomerServiceKnowledgeBase(minimal_df)
-            print("✓ Knowledge base created from config")
+        # Load knowledge base
+        with open(system_path / 'knowledge_base.pkl', 'rb') as f:
+            kb = pickle.load(f)
+        print("✓ Knowledge base loaded")
         
         # Load vector store
         vector_store = FAISSVectorStore(model_name=config['model_name'])
