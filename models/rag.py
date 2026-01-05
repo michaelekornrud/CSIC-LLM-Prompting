@@ -593,7 +593,6 @@ if __name__ == "__main__":
     """
     Example usage of the RAG system
     """
-    import sys
     from pathlib import Path
     
     # Setup paths

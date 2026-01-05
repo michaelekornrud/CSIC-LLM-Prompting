@@ -7,7 +7,7 @@ from pydantic import BaseModel
 project_root = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(project_root))
 
-from models.rag import RAGSystemManager
+from models.rag import RAGSystemManager  # NOQA: E402
 
 # Initialize FastAPI app
 app = FastAPI(title="Customer Service RAG Chat API")
