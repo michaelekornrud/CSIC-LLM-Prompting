@@ -24,6 +24,8 @@ vector_stores/
 *secret*
 config/credentials.json
 
+models/rag_system/*.pkl
+models/rag_system/*.bin
 
 models/trained/*.pkl
 models/trained/*.joblib
